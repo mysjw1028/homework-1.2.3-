@@ -21,16 +21,17 @@ public class ProductController {
 	public String 전체보기(Model model) {
 		List<Product> productList = productDao.findAll();
 		model.addAttribute("product", productList);
-		System.out.println(productList);//왜 []상태인걸까
+		System.out.println(productList);
 		return "product/product";
 	}
 
-	@GetMapping("/product/{id}") // 1번 findById -> 상세보기
-	public Product 상세보기(@PathVariable Integer productId) {
-		return productDao.findById(productId);
+	@GetMapping("/product/{productId}") // 2번 findById -> 상세보기
+	public String 상세보기(@PathVariable Integer productId, Model model) {
+		model.addAttribute("product", productDao.findById(productId));
+		return "product/detail";
 	}
-
-	//**********************POSTMAN으로 테스트****************//
+	
+	//**********************POSTMAN으로 테스트****************/
 	
 	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
 	public void 추가하기(Product product) {

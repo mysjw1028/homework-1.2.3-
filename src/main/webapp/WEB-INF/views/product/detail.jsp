@@ -7,7 +7,7 @@
 <title>숙제</title>
 </head>
 <body>
-	<h1>이렇게 하는게 맞나..?</h1>
+	<h1>상세보기</h1>
 	<table class="table table-product" id="datatable" width="500'
 	%" border="2">
 		<thead>
@@ -19,14 +19,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="product" items="${product}">
-				<tr>
-					<td>${product.productName}</td>
-					<td>${product.productPrice}</td>
-					<td>${product.productQty}</td>
-					<td>${product.createdAt}</td>
-				</tr>
-			</c:forEach>
+
+			<tr>
+				<td>${product.productName}</td>
+				<td>${product.productPrice}</td>
+				<td>${product.productQty}</td>
+				<td>${product.createdAt}</td>
+			</tr>
+
 		</tbody>
 	</table>
 </body>
