@@ -18,7 +18,7 @@ import site.metacoding.firstapp.web.dto.ProductReqDto;
 public class ProductController {
 	private final ProductDao productDao;
 
-	@GetMapping("/product") // 1번 findAll -> 전체보여주기
+	@GetMapping({"/","/product"}) // 1번 findAll -> 전체보여주기
 	public String 전체보기(Model model) {
 		List<Product> productList = productDao.findAll();
 		model.addAttribute("product", productList);
@@ -31,13 +31,18 @@ public class ProductController {
 		return "product/detail";
 	}
 
+	
+	@GetMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기 -> view 에 화면 띄우기
+	public String test() {
+		return "product/insert";
+	}
 	// **********************POSTMAN으로 테스트****************//
 
 
-	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
-	public void 추가하기(ProductReqDto  productReqDto) {
-		productDao.insert(productReqDto);
-	}//값은 들어갔지만 뷰에는 안나오노
+//	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
+//	public void 추가하기(ProductReqDto  productReqDto) {
+//		productDao.insert(productReqDto);
+//	}//값은 들어갔지만 뷰에는 안나오노
 	
 	
 	@PostMapping("/product/{productId}/edit") // 4번 update -> 수정하기 -> post로 값 수정

@@ -1,5 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../layout/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,26 +10,19 @@
 </head>
 <body>
 	<h1>추가하기</h1>
-	<table class="table table-product" id="datatable" width="50'
-	%" border="2">
-		<thead>
-			<tr>
-				<th>이름</th>
-				<th>가격</th>
-				<th>재고</th>
-				<th>시간</th>
-			</tr>
-		</thead>
-		<tbody>
 
-			<tr>
-				<td>${product.productName}</td>
-				<td>${product.productPrice}</td>
-				<td>${product.productQty}</td>
-				<td>${product.createdAt}</td>
-			</tr>
+	<div class="mb-8 mt-8">
+		<input id="name" type="text" class="form-control" placeholder="상품이름">
+	</div>
+	<div class="mb-3 mt-3">
+		<input id="name" type="text" class="form-control" placeholder="가격">
+	</div>
+	<div class="mb-3 mt-3">
+		<input id="name" type="text" class="form-control" placeholder="재고">
+	</div>
+	<button id="btnInsert" type="button" class="btn btn-primary">상품등록 완료</button>
 
-		</tbody>
-	</table>
+
 </body>
 </html>
+<%@ include file="../layout/footer.jsp"%>

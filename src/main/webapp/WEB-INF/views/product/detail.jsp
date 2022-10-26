@@ -1,4 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../layout/header.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,8 +10,7 @@
 </head>
 <body>
 	<h1>상세보기</h1>
-	<table class="table table-product" id="datatable" width="500'
-	%" border="2">
+	<table class="table table-product" id="datatable"  border="2">
 		<thead>
 			<tr>
 				<th>이름</th>
@@ -31,3 +32,4 @@
 	</table>
 </body>
 </html>
+<%@ include file="../layout/footer.jsp"%>
