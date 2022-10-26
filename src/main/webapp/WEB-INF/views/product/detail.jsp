@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>상세보기</h1>
-	<table class="table table-product" id="datatable"  border="2">
+	<table class="table table-product" id="datatable" border="2">
 		<thead>
 			<tr>
 				<th>이름</th>
@@ -30,6 +30,8 @@
 
 		</tbody>
 	</table>
+	<button id="btnUpdate" type="button" class="btn btn-primary">상품수정완료</button>
+	<button id="btnDelete" class="btn btn-danger">상품삭제</button>
 </body>
 </html>
 <%@ include file="../layout/footer.jsp"%>
