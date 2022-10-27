@@ -20,7 +20,7 @@
 	<div class="mb-3 mt-3">
 		<input id="name" type="text" class="form-control" placeholder="재고">
 	</div>
-	<button id="btnInsert" type="button" class="btn btn-primary">상품등록 완료</button>
+	<button id="btnInsert" type="button" class="btn btn-primary" href="/product">상품등록 완료</button>
 
 
 </body>

@@ -30,8 +30,8 @@
 
 		</tbody>
 	</table>
-	<button id="btnUpdate" type="button" class="btn btn-primary">상품수정완료</button>
-	<button id="btnDelete" class="btn btn-danger">상품삭제</button>
+	<button id="btnUpdate" type="button" class="btn btn-primary">상품수정</button>
+	<button id="btnDelete" class="btn btn-danger" >상품삭제</button>
 </body>
 </html>
 <%@ include file="../layout/footer.jsp"%>
