@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
-import site.metacoding.firstapp.web.dto.ProductReqDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -40,18 +39,17 @@ public class ProductController {
 	public String insert() {
 		return "product/insert";
 	}
-//	@PostMapping("/product/{productId}/edit")
-//	public String testupdate() {
-//
-//		return "product/update";
-//	}
 
-	// **********************POSTMAN으로 테스트****************//
+	//**********************POSTMAN으로 테스트****************//
 
 	@PostMapping("/product/{productId}/edit") // 4번 update -> 수정하기 -> post로 값 수정
 	public void 수정하기(@PathVariable Integer productId, Product product) {
 		productDao.update(product);
 		// System.out.println(productId);//해당 아이디 숫자 출력됨
+	}
+	@GetMapping("/product/{productId}/edit")
+	public String update() {
+		return "product/update";
 	}
 
 	@PostMapping("/product/{productId}/delete") // 5번 deleteById -> 삭제하기 -> post로 값 삭제

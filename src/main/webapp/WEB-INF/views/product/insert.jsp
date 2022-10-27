@@ -4,12 +4,9 @@
 
 <!DOCTYPE html>
 
-<title>숙제</title>
-</head>
-
 <div id=cotainer>
 	<form action="/product/insert" method="POST">
-		<div class=titleinsert>추가하기</div>
+		<h3>추가하기</h3>
 
 		<div class="mb-8 mt-8">
 			<input id="name" type="text"  name ="productName" class="form-control" placeholder="상품이름">
@@ -21,14 +18,12 @@
 			<input id="name" type="text"  name ="productQty" class="form-control" placeholder="재고">
 		</div>
 
-		<button id="btnInsert" type="submit" class="btn btn-primary"  >
+		<button id="btnInsert" type="submit" class="btn btn-primary"   href ="/product">
 			상품등록 완료
 		</button>
 	</form>
 
 </div>
-<script>
 
-</script>
 
 <%@ include file="../layout/footer.jsp"%>
