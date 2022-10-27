@@ -31,26 +31,31 @@ public class ProductController {
 		return "product/detail";
 	}
 
-	@GetMapping("/product/insert")
-	public String testinsert() {
-		return "product/insert";
-	}
-
-	// **********************POSTMAN으로 테스트****************//
-
 	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
-	public void 추가하기(Product  product) {
+	public void 추가하기(Product product) {
 		productDao.insert(product);
 	}
 
+	@GetMapping("/product/insert")
+	public String insert() {
+		return "product/insert";
+	}
+//	@PostMapping("/product/{productId}/edit")
+//	public String testupdate() {
+//
+//		return "product/update";
+//	}
+
+	// **********************POSTMAN으로 테스트****************//
+
 	@PostMapping("/product/{productId}/edit") // 4번 update -> 수정하기 -> post로 값 수정
-	public void update(@PathVariable Integer productId, Product product) {
+	public void 수정하기(@PathVariable Integer productId, Product product) {
 		productDao.update(product);
 		// System.out.println(productId);//해당 아이디 숫자 출력됨
 	}
 
 	@PostMapping("/product/{productId}/delete") // 5번 deleteById -> 삭제하기 -> post로 값 삭제
-	public void delete(@PathVariable Integer productId, Product product) {
+	public void 삭제하기(@PathVariable Integer productId, Product product) {
 		productDao.deleteById(productId);
 	}
 

@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+<link href="/css/insert.css" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -22,7 +24,7 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
-					<li class="nav-item"><a class="nav-link" href="/product/${pricipal.id}">상품상세보기페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="/product/${pricipal.productid}">상품상세보기페이지</a></li>
 					<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li>
 				</ul>
 			</div>

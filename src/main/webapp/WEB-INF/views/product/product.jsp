@@ -6,11 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>숙제</title>
 </head>
 <body>
-	<h1> 상품전체보기</h1>
-	<table class="table table-product" id="datatable"  border="2">
+<div id ="cotainer'">
+	<h2> 상품전체보기</h2>
+	<table class="table table-product" id="datatable"  border="2" >
 		<thead>
 			<tr>
 				<th>이름</th>
@@ -30,6 +32,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>
 <%@ include file="../layout/footer.jsp"%>
