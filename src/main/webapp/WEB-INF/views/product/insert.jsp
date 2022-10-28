@@ -18,7 +18,7 @@
 			<input id="name" type="text"  name ="productQty" class="form-control" placeholder="재고">
 		</div>
 
-		<button id="btnInsert" type="submit" class="btn btn-primary"   href ="/product">
+		<button id="btnInsert" type="submit" class="btn btn-primary" >
 			상품등록 완료
 		</button>
 	</form>

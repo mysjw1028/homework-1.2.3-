@@ -43,14 +43,19 @@ public class ProductController {
 	//**********************POSTMAN으로 테스트****************//
 
 	@PostMapping("/product/{productId}/edit") // 4번 update -> 수정하기 -> post로 값 수정
-	public void 수정하기(@PathVariable Integer productId, Product product) {
-		productDao.update(product);
-		// System.out.println(productId);//해당 아이디 숫자 출력됨
+	public String 수정하기(@PathVariable Integer productId, Product product) {
+		Product  productPS =productDao.findById(productId);
+		productPS.update(product);
+		productDao.update(productPS);
+		return "redirect:/product/"+productId;
 	}
 	@GetMapping("/product/{productId}/edit")
-	public String update() {
+	public String update(@PathVariable Integer productId,  Model model) {
+		Product  productPS =productDao.findById(productId);
+		model.addAttribute("product",productPS);
+	// System.out.println(productId);//해당 아이디 숫자 출력됨
 		return "product/update";
-	}
+}
 
 	@PostMapping("/product/{productId}/delete") // 5번 deleteById -> 삭제하기 -> post로 값 삭제
 	public void 삭제하기(@PathVariable Integer productId, Product product) {

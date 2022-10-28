@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <div id=cotainer>
-	<form action="/product/insert" method="POST">
+	<form action="/product/${product.productId}/edit" method="POST">
 
 		<h3>상품수정하기</h3>
 

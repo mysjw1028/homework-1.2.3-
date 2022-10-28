@@ -24,7 +24,7 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
-					<li class="nav-item"><a class="nav-link" href="/product/${pricipal.productid}">상품상세보기페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="/product/${productid}">상품상세보기페이지</a></li>
 					<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li>
 				</ul>
 			</div>
