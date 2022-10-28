@@ -3,12 +3,9 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>숙제</title>
-</head>
-<body>
+<div id ="container">
+	<form action="/product/${product.productId}/delete" method="POST">
+
 	<h1>상세보기</h1>
 	<table class="table table-product" id="datatable" border="2">
 		<thead>
@@ -31,7 +28,9 @@
 		</tbody>
 	</table>
 	<a href="/product/${productId}/edit"><button id="btnUpdate" type="button"  class="btn btn-primary" >상품수정</button></a>
-	<button id="btnDelete" class="btn btn-danger" >상품삭제</button>
-</body>
-</html>
+	<a href="/product/${productId}/delete"><button id="btnDelete" class="btn btn-danger" >상품삭제</button></a>
+
+</form>
+</div>
+
 <%@ include file="../layout/footer.jsp"%>

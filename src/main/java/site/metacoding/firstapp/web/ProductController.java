@@ -40,26 +40,35 @@ public class ProductController {
 		return "product/insert";
 	}
 
-	//**********************POSTMAN으로 테스트****************//
+	// **********************POSTMAN으로 테스트****************//
 
 	@PostMapping("/product/{productId}/edit") // 4번 update -> 수정하기 -> post로 값 수정
 	public String 수정하기(@PathVariable Integer productId, Product product) {
-		Product  productPS =productDao.findById(productId);
+		Product productPS = productDao.findById(productId);
 		productPS.update(product);
 		productDao.update(productPS);
-		return "redirect:/product/"+productId;
+		return "redirect:/product/" + productId;
 	}
+
 	@GetMapping("/product/{productId}/edit")
-	public String update(@PathVariable Integer productId,  Model model) {
-		Product  productPS =productDao.findById(productId);
-		model.addAttribute("product",productPS);
-	// System.out.println(productId);//해당 아이디 숫자 출력됨
+	public String update(@PathVariable Integer productId, Model model) {
+		Product productPS = productDao.findById(productId);
+		model.addAttribute("product", productPS);
+		// System.out.println(productId);//해당 아이디 숫자 출력됨
 		return "product/update";
-}
+	}
 
 	@PostMapping("/product/{productId}/delete") // 5번 deleteById -> 삭제하기 -> post로 값 삭제
-	public void 삭제하기(@PathVariable Integer productId, Product product) {
+	public String 삭제하기(@PathVariable Integer productId) {
+		Product productPS = productDao.findById(productId);
 		productDao.deleteById(productId);
+		return "redirect:/";
 	}
+
+//	@GetMapping("/product/{productId}/delete")
+//	public String delete(@PathVariable Integer productId, Model model) {
+//		model.addAttribute("product", productDao.findById(productId));
+//		return "product/detail";
+//	}
 
 }
