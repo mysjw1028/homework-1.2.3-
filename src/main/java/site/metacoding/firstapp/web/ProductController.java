@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,7 @@ import site.metacoding.firstapp.web.dto.CMRespDto;
 @Controller
 public class ProductController {
 	private final ProductDao productDao;
-	private final ProductService  productService;
-
+	private final ProductService productService;
 
 	@GetMapping({ "/", "/product" }) // 1번 findAll -> 전체보여주기
 	public String findAll(Model model) {
@@ -36,8 +36,9 @@ public class ProductController {
 	}
 
 	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
-	public void 추가하기(Product product) {
+	public  @ResponseBody CMRespDto<?>  추가하기(@RequestBody Product product) {
 		productDao.insert(product);
+		return new CMRespDto<>(1, "상품등록성공", null);
 	}
 
 	@GetMapping("/product/insert")
@@ -69,16 +70,11 @@ public class ProductController {
 		productDao.deleteById(productId);
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/product/productNameCheck")
-	public @ResponseBody CMRespDto<Boolean> companyNumberSameCheck(String productName) {
+	public @ResponseBody CMRespDto<Boolean> productNumberSameCheck(String productName) {
+		System.out.println("상품이름 : " + productName);
 		boolean isSame = productService.상품명중복체크(productName);
 		return new CMRespDto<>(1, "성공", isSame);
 	}
-
-
-	
-
-
-
 }

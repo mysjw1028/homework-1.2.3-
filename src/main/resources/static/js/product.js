@@ -6,32 +6,48 @@ $("#btnInsert").click(() => {
 
 $("#btnproductNameSameCheck").click(() => {
 	checkProductName();
-
 });
+function checkProductName() {
+	let productName = $("#productName").val();
 
-
-
+	$.ajax("/product/productNameCheck?productName=" + productName, {
+		type: "GET",
+		dataType: "json",
+		async: true
+	}).done((res) => {
+		if (res.code == 1) { // 통신 성공
+			if (res.data == false) {
+				alert("중복되지 않았습니다.");
+				productNameSameCheck = true;
+			} else {
+				alert("상품명이 중복되었어요. 다른 상품명 사용해주세요.");
+				productNameSameCheck = false;
+			}
+		}
+	});
+};
 function insert() {
 
-	if (productNameCheck() == false) {
+	if (checkProductName() == false) {
 		alert("상품명 다시 적어주세요");
 		return;
 	}
 
-	if (price() == false) {
+	if (priceCheck() == false) {
 		alert("가격을  다시 적어주세요");
 		return;
 	}
-	if (qty() == false) {
+	if (qtyCheck() == false) {
 		alert("재고 다시 적어주세요");
 		return;
 	}
 
 	let data = {
-		productName: $("#name").val(),
-		price: $("#price").val(),
-		qty: $("#qty").val()
-	}
+		productName: $("#productName").val(),
+		productPrice: $("#productPrice").val(),
+		productQty: $("#productQty").val()
+	};
+
 	$.ajax("/product/insert", {
 		type: "POST",
 		dataType: "json",
@@ -41,43 +57,20 @@ function insert() {
 		}
 	}).done((res) => {
 		if (res.code == 1) { // 성공
-			alert("등록잘됨");
+			alert("상품등록에 성공하였습니다.");
 			location.href = "/";
 		} else { // 실패
 			alert("상품등록에 실패하였습니다.");
+			history.back();
 		}
 	});
 }
 
-function checkProductName() {
-	let productName = $("#name").val();
-
-	$.ajax("/product/productNameCheck?productName=" + productName, {
-		type: "GET",
-		dataType: "json",
-		async: true
-	}).done((res) => {
-		if (res.code == 1) { // 통신 성공
-			if (res.data == false) {
-				alert("상품명이 중복되지 않았습니다.");
-				productNameSameCheck = true;
-
-			} else {
-				alert("상품명이 중복되었어요. 다른 아이디를 사용해주세요.");
-				productNameSameCheck = false;
-				$("#productName").val("");
-			}
-		}
-	});
-};
-
-
-
 
 
 function priceCheck() {
-	let price = $("#price").val();
-	let priceRule = /^[0-9]{1,10}$/;
+	let price = $("#productPrice").val();
+	let priceRule = /^[0-9]*$/;
 	if (priceRule.test(price)) {
 		return true;
 	} else {
@@ -86,8 +79,8 @@ function priceCheck() {
 }
 
 function qtyCheck() {
-	let qty = $("#qty").val();
-	let qtyRule = /^[0-9]{1,10}$/;
+	let qty = $("#productQty").val();
+	let qtyRule = /^[0-9]*$/;
 	if (qtyRule.test(qty)) {
 		return true;
 	} else {
