@@ -7,15 +7,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstapp.Service.ProductService;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
+import site.metacoding.firstapp.web.dto.CMRespDto;
 
 @RequiredArgsConstructor
 @Controller
 public class ProductController {
 	private final ProductDao productDao;
+	private final ProductService  productService;
+
 
 	@GetMapping({ "/", "/product" }) // 1번 findAll -> 전체보여주기
 	public String findAll(Model model) {
@@ -64,11 +69,16 @@ public class ProductController {
 		productDao.deleteById(productId);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/product/productNameCheck")
+	public @ResponseBody CMRespDto<Boolean> companyNumberSameCheck(String productName) {
+		boolean isSame = productService.상품명중복체크(productName);
+		return new CMRespDto<>(1, "성공", isSame);
+	}
 
-//	@GetMapping("/product/{productId}/delete")
-//	public String delete(@PathVariable Integer productId, Model model) {
-//		model.addAttribute("product", productDao.findById(productId));
-//		return "product/detail";
-//	}
+
+	
+
+
 
 }

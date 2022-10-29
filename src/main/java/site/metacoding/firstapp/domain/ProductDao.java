@@ -13,6 +13,6 @@ public interface ProductDao {
 	public int deleteById(Integer productId);
 
 	public int insert(Product product);
-	public Product ProductName(String productName);
+	public Product findByIdProductName(String productName);
 
 }

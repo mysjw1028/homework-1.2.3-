@@ -9,11 +9,10 @@
 		SELECT * FROM product WHERE product_id = #{productId}
 	</select>
 
-	<select id="ProductName"
+	<select id="findByIdProductName"
 		resultType="site.metacoding.firstapp.domain.Product">
 		SELECT * FROM product WHERE product_name = #{productName}
 	</select>
-
 
 	<select id="findAll"
 		resultType="site.metacoding.firstapp.domain.Product">
@@ -23,8 +22,6 @@
 		FROM product
 
 	</select>
-
-
 
 	<insert id="insert" useGeneratedKeys="true"
 		keyProperty="productId">
