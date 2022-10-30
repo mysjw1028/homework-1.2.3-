@@ -18,7 +18,9 @@
 		<div class="mb-3 mt-3">
 			<input id="name" type="text" name="productQty" class="form-control" placeholder="재고">
 		</div>
-		<button id="btnupdate" type="submit" class="btn btn-primary">상품수정 완료</button>
+		<a href="/product">
+			<button id="btnupdate" type="submit" class="btn btn-primary">상품수정 완료</button>
+		</a>
 	</form>
 </div>
 

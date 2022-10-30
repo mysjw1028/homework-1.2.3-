@@ -14,7 +14,6 @@ public class ProductService {
 
 	public boolean 상품명중복체크(String productName) {
 		Product productPS = productDao.findByIdProductName(productName);
-		
 		if (productPS == null) { // 사업자 번호 가 중복 안됨ㄴ
 			return false;
 		} else { // 사업자번호가 중복됨

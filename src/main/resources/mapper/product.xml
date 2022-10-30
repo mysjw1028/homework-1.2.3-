@@ -20,7 +20,6 @@
 		product_name, product_price, product_qty,
 		created_at
 		FROM product
-
 	</select>
 
 	<insert id="insert" useGeneratedKeys="true"

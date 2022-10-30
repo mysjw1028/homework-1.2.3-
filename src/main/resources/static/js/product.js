@@ -1,19 +1,22 @@
+
 let productNameSameCheck = false;
+
+$("#btnproductNameSameCheck").click(() => {
+	checkProductName();
+});
 
 $("#btnInsert").click(() => {
 	insert();
 });
 
-$("#btnproductNameSameCheck").click(() => {
-	checkProductName();
-});
+
+
 function checkProductName() {
 	let productName = $("#productName").val();
 
 	$.ajax("/product/productNameCheck?productName=" + productName, {
 		type: "GET",
 		dataType: "json",
-		async: true
 	}).done((res) => {
 		if (res.code == 1) { // 통신 성공
 			if (res.data == false) {
@@ -26,6 +29,7 @@ function checkProductName() {
 		}
 	});
 };
+
 function insert() {
 
 	if (checkProductName() == false) {
@@ -64,8 +68,8 @@ function insert() {
 			history.back();
 		}
 	});
-}
 
+}
 
 
 function priceCheck() {

@@ -36,7 +36,7 @@ public class ProductController {
 	}
 
 	@PostMapping("/product/insert") // 3번 insert -> 데이터에 값넣기-> post로 넣기
-	public  @ResponseBody CMRespDto<?>  추가하기(@RequestBody Product product) {
+	public @ResponseBody CMRespDto<?> 추가하기(@RequestBody Product product) {
 		productDao.insert(product);
 		return new CMRespDto<>(1, "상품등록성공", null);
 	}
@@ -53,7 +53,7 @@ public class ProductController {
 		Product productPS = productDao.findById(productId);
 		productPS.update(product);
 		productDao.update(productPS);
-		return "redirect:/product/" + productId;
+		return "redirect:/";
 	}
 
 	@GetMapping("/product/{productId}/edit")

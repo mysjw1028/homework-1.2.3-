@@ -16,6 +16,7 @@
 		<div class="mb-3 mt-3">
 			<input id="productPrice" type="text" name="productPrice" class="form-control" placeholder="가격">
 		</div>
+		
 		<div class="mb-3 mt-3">
 			<input id="productQty" type="text" name="productQty" class="form-control" placeholder="재고">
 		</div>
