@@ -1,13 +1,13 @@
 
 let productNameSameCheck = false;
-
 $("#btnproductNameSameCheck").click(() => {
 	checkProductName();
-});
+})
 
 $("#btnInsert").click(() => {
+
 	insert();
-});
+})
 
 
 
@@ -24,15 +24,14 @@ function checkProductName() {
 				productNameSameCheck = true;
 			} else {
 				alert("상품명이 중복되었어요. 다른 상품명 사용해주세요.");
-				productNameSameCheck = false;
 			}
 		}
 	});
-};
+}
 
 function insert() {
 
-	if (checkProductName() == false) {
+	if (checkProductName == false) {
 		alert("상품명 다시 적어주세요");
 		return;
 	}
@@ -68,7 +67,6 @@ function insert() {
 			history.back();
 		}
 	});
-
 }
 
 
