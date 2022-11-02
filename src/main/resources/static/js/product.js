@@ -1,5 +1,7 @@
 
 let productNameSameCheck = false;
+let productNamechecktag = 1;
+
 $("#btnproductNameSameCheck").click(() => {
 	checkProductName();
 })
@@ -22,6 +24,7 @@ function checkProductName() {
 			if (res.data == false) {
 				alert("중복되지 않았습니다.");
 				productNameSameCheck = true;
+				productNamechecktag = $("#productName").val();
 			} else {
 				alert("상품명이 중복되었어요. 다른 상품명 사용해주세요.");
 			}
@@ -33,6 +36,10 @@ function insert() {
 
 	if (checkProductName == false) {
 		alert("상품명 다시 적어주세요");
+		return;
+	}
+	if (productNamechecktag != $("#productName").val()) {
+		alert("상품명 중복체크 다시 해주세요");
 		return;
 	}
 
