@@ -25,10 +25,22 @@ create table product(
     product_qty INT NOT null,
     created_at TIMESTAMP NOT null
 );
+
+create table users(
+    users_id int KEY auto_increment,
+    user_name varchar(20) NOT null,
+    password varchar(20) NOT null,
+    email varchar(20) NOT null,
+    created_at TIMESTAMP NOT null
+);
 ```
 
 ### 5. 더미데이터
 ```sql
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('바나나', 3000, 98, NOW());
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('딸기', 2000, 100, NOW());
+
+INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('1', 'ssar','1234','ssar@nate.com', NOW());
+INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('2', 'cos','1234','cos@nate.com', NOW());
+INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('3', 'apple','1234','apple@nate.com', NOW());
 ```
