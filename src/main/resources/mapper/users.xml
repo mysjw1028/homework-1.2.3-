@@ -6,7 +6,13 @@
 
 	<insert id="insert" useGeneratedKeys="true"
 		keyProperty="usersId">
-INSERT INTO users(username,password, email,createdAt)
-VALUES(#{username},#{password},#{email}, NOW())
+		insert into users(user_name, password, email, created_at)
+		VALUES(#{userName},#{password},#{email}, NOW())
 	</insert>
+	<select id="findById" 	resultType="site.metacoding.firstapp.domain.Users">
+		SELECT * FROM users WHERE users_id = #{usersId}
+	</select>
+
+
+	
 </mapper>

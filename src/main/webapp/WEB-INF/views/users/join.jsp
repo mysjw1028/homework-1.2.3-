@@ -6,7 +6,7 @@
 <div class="container">
 	<form action="/join/insert" method="post">
 		<div class="mb-3 mt-3">
-			<input type="text" class="form-control" placeholder="Enter username" name="username">
+			<input type="username" class="form-control" placeholder="Enter username" name="userName">
 		</div>
 		<div class="mb-3">
 			<input type="password" class="form-control"
