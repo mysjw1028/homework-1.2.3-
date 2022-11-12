@@ -9,5 +9,5 @@ import site.metacoding.firstapp.domain.Users;
 public class BuyDto {
 	private Integer productId;
 	private Integer id;
-	private Integer productQty;
+	private Integer buyQty;
 }

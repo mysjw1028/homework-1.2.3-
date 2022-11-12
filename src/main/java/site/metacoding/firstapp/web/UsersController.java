@@ -20,7 +20,6 @@ import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 public class UsersController {
 	private final HttpSession session;
 	private final UsersDao usersDao;
-	private final ProductDao productDao;
 
 	@GetMapping("/join") // 화면 출력되는지 확인 완료
 	public String join() {

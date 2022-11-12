@@ -29,7 +29,7 @@
 			</tbody>
 		</table>
 		<div class="mb-3 mt-3">
-			<input id="productQty" type="text" name="productQty" class="form-control" placeholder="구매갯수">
+			<input id="buyQty" type="text" name="buyQty" class="form-control" placeholder="구매갯수">
 			<button id="btnInsert" type="submit" class="btn btn-primary">상품구매 완료</button>
 		</div>
 	</form>

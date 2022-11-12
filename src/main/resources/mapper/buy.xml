@@ -5,8 +5,8 @@
 <mapper namespace="site.metacoding.firstapp.domain.BuyDao">
 
 	<insert id="insert" >
-		insert into buy(product_id, users_id, created_at) 
-		values(#{productId}, #{id},NOW())
+		insert into buy(product_id, users_id, buy_qty,created_at) 
+		values(#{productId}, #{id}, #{buyQty}, NOW())
 	</insert>
 
 
