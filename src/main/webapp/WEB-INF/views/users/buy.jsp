@@ -1,12 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<div id="container">
-	<form action="/product/${product.productId}/delete" method="POST">
 
-		<h1>상세보기</h1>
+<!DOCTYPE html>
+
+<div id=cotainer>
+	<form action="/buy" method="POST">
+		<h3>구매하기</h3>
 		<table class="table table-product" id="datatable" border="2">
 			<thead>
 				<tr>
@@ -17,7 +17,8 @@
 				</tr>
 			</thead>
 			<tbody>
-
+				<input type="hidden"  name="productId" value="${product.productId }">
+				<input type="hidden"  name="id" value="${principal.id}">
 				<tr>
 					<td>${product.productName}</td>
 					<td>${product.productPrice}</td>
@@ -27,11 +28,13 @@
 
 			</tbody>
 		</table>
-	<!-- 	<a href="/product/${productId}/edit"><button id="btnUpdate" type="button"
-				class="btn btn-primary">상품수정</button></a> <a href="/product/${productId}/delete"><button
-				id="btnDelete" class="btn btn-danger">상품삭제</button></a> -->
+		<div class="mb-3 mt-3">
+			<input id="productQty" type="text" name="productQty" class="form-control" placeholder="구매갯수">
+			<button id="btnInsert" type="submit" class="btn btn-primary">상품구매 완료</button>
+		</div>
 	</form>
-	<a href="/buy/${productId}"><button class="btn  btn-primary">상품구매</button></a>
+	
+
 </div>
 
 <%@ include file="../layout/footer.jsp"%>

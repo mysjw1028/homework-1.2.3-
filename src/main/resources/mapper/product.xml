@@ -37,6 +37,13 @@
 		WHERE
 		product_id = #{productId}
 	</update>
+	
+	<update id="updateQty">
+		UPDATE product SET 
+		product_qty = #{productQty}
+		WHERE
+		product_id = #{productId}
+	</update>
 
 	<delete id="deleteById">
 		DELETE FROM product WHERE product_id = #{productId}

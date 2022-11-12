@@ -30,9 +30,9 @@
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
-							<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li>
-								<li class="nav-item"><a class="nav-link" href="/users/${principal.usersId}">회원정보보기</a></li>
 							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+							<!--	<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li> 관리자 입장에서 보이기-->
+								<!--  <li class="nav-item"><a class="nav-link" href="/users/${principal}">회원정보보기</a></li>-->
 						</c:otherwise>
 					</c:choose>
 				</ul>

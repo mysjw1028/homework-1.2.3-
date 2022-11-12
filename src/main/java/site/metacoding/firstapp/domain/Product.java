@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 
+
 @Getter
 public class Product {
 	private Integer productId;

@@ -12,7 +12,7 @@ import site.metacoding.firstapp.web.dto.request.users.UpdateDto;
 @Setter
 @Getter
 public class Users {
-	private Integer usersId;
+	private Integer id;
 	private String userName;
 	private String password;
 	private String email;
