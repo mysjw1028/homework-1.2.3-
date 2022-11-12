@@ -16,22 +16,24 @@
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>이름</th>
-					<th>가격</th>
-					<th>재고</th>
-					<th>시간</th>
+					<th>상품이름</th>
+					<th>구매갯수</th>
+					<th>상품가격</th>
+					<th>구매시시간</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="product" items="${product}">
+
+				<c:forEach var="buy" items="${buy}">
 					<tr>
-						<td>${product.no}</td>
-						<td><a href="/product/${product.productId}">${product.productName}</a></td>
-						<td>${product.productPrice}</td>
-						<td>${product.productQty}</td>
-						<td>${product.createdAt}</td>
+						<td>${buy.id }</td>
+						<td>${buy.productName}</td>
+						<td>${buy.buyQty}</td>
+						<td>${buy.productPrice}</td>
+						<td>${buy.createdAt}</td>
 					</tr>
 				</c:forEach>
+
 			</tbody>
 		</table>
 	</div>
