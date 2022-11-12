@@ -26,6 +26,8 @@ public class UsersController {
 	public String join() {
 		return "users/join";
 	}
+	
+	
 
 	@PostMapping("/join/insert")
 	public  String 회원가입(Users users ) {
@@ -34,20 +36,20 @@ public class UsersController {
 		usersDao.insert(users);
 		System.out.println(users.getUserName());
 		return "redirect:/";
-	}
+	}//디비에 값 들어가는거 확인 완료
 	
 
 	@GetMapping("/login") // 화면 출력되는지 확인 완료
 	public String login() {
 		return "users/login";
-	}
+	}//화면은 잘 나옴
 
 	@PostMapping("/login")
-	public String 로그인(LoginDto loginDto) {// 로그인 하고 난 후
+	public String 로그인(LoginDto loginDto) {// 로그인  / xml에 쿼리 있는지 보기!!
 		Users usersPS = usersDao.login(loginDto);
+		session.setAttribute("principal", usersPS);
 		if (usersPS != null) {
-			session.setAttribute("principal", usersPS);
-			return "redirect:/";// model를 사용 했을때 "redirect:/" 이거를 사용해야 화면이 보여진다.
+		return "redirect:/";// model를 사용 했을때 "redirect:/" 이거를 사용해야 화면이 보여진다.
 		} else {//인증실패하면
 			return "users/login";
 		}

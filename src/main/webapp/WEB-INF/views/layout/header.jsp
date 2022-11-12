@@ -31,7 +31,7 @@
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
 							<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li>
-								<li class="nav-item"><a class="nav-link" href="/users/${principal.id}">회원정보보기</a></li>
+								<li class="nav-item"><a class="nav-link" href="/users/${principal.usersId}">회원정보보기</a></li>
 							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
 						</c:otherwise>
 					</c:choose>

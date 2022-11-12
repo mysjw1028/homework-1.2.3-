@@ -8,7 +8,7 @@
 		<div class="mb-3 mt-3">
 			<input
 				type="text" class="form-control"
-				placeholder="Enter username" name="username">
+				placeholder="Enter username" name="userName">
 		</div>
 		<div class="mb-3">
 			<input

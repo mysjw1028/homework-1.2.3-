@@ -9,10 +9,14 @@
 		insert into users(user_name, password, email, created_at)
 		VALUES(#{userName},#{password},#{email}, NOW())
 	</insert>
+	
 	<select id="findById" 	resultType="site.metacoding.firstapp.domain.Users">
 		SELECT * FROM users WHERE users_id = #{usersId}
 	</select>
 
+<select id="login"  resultType="site.metacoding.firstapp.domain.Users">
+		SELECT * FROM users WHERE user_name =#{userName} AND password=#{password}
+	</select>
 
 	
 </mapper>

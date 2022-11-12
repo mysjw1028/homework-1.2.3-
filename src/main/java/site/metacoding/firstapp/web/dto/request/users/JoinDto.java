@@ -11,8 +11,5 @@ public class JoinDto {
 	private String password;
 	private String email;
 	
-	public Users toEntity() {
-		Users users = new Users(this.userName, this.password, this.email);
-		return users;
-	}
+
 }
