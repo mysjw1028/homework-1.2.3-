@@ -27,8 +27,6 @@ public class UsersController {
 		return "users/join";
 	}
 	
-	
-
 	@PostMapping("/join/insert")
 	public  String 회원가입(Users users ) {
 		//테스트할때 디비 / Dao /Dto 확인 후  값이 안들어가면 view name이 엔티티랑 같은지 확인하기!
@@ -45,7 +43,7 @@ public class UsersController {
 	}//화면은 잘 나옴
 
 	@PostMapping("/login")
-	public String 로그인(LoginDto loginDto) {// 로그인  / xml에 쿼리 있는지 보기!!
+	public String 로그인(LoginDto loginDto) {// 로그인  / xml에 쿼리 있는지 확인 / login jsp name 확인하기
 		Users usersPS = usersDao.login(loginDto);
 		session.setAttribute("principal", usersPS);
 		if (usersPS != null) {
@@ -53,6 +51,11 @@ public class UsersController {
 		} else {//인증실패하면
 			return "users/login";
 		}
-
+	}
+	
+	@GetMapping("/logout") // 화면 출력되는지 확인 완료
+	public String loginout() {
+		session.invalidate();
+		return "redirect:/";
 	}
 }

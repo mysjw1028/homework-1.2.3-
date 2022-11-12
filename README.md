@@ -33,6 +33,12 @@ create table users(
     email varchar(20) NOT null,
     created_at TIMESTAMP NOT null
 );
+create table buy(
+    id int primary KEY auto_increment,
+    product_id INT,
+    users_id INT,
+    created_at  TIMESTAMP
+);
 ```
 
 ### 5. 더미데이터
