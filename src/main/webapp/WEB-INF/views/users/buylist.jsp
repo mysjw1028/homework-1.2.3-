@@ -26,7 +26,7 @@
 
 				<c:forEach var="buy" items="${buy}">
 					<tr>
-						<td>${buy.id }</td>
+						<td>${buy.no}</td>
 						<td>${buy.productName}</td>
 						<td>${buy.buyQty}</td>
 						<td>${buy.productPrice}</td>

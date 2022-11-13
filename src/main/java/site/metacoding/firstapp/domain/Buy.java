@@ -15,4 +15,6 @@ public class Buy {
 	private Integer usersId;
 	private Timestamp createdAt;
 
+	// 엔티티가 아닌 필드
+	private Integer no;
 }

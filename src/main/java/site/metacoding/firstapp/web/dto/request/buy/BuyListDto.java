@@ -14,4 +14,5 @@ public class BuyListDto {
 	private Integer buyQty;
 	private Integer productPrice;
 	private Timestamp createdAt;
+	private Integer no;
 }

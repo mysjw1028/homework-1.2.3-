@@ -7,7 +7,7 @@
 
 	<select id="buyList"
 		resultType="site.metacoding.firstapp.web.dto.request.buy.BuyListDto">
-		SELECT b.id,p.product_name, b.buy_qty, p.product_price, b.created_at
+		SELECT b.id, row_number() over(order BY b.id )as NO,p.product_name, b.buy_qty, p.product_price, b.created_at
 		FROM
 		buy b
 		INNER JOIN product p

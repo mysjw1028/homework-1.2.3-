@@ -38,24 +38,20 @@ public class BuyController {
 		System.out.println(buyDto.getProductId());
 		// 2. buyCount에 기존 DB의 상품갯수 - 구매하려고 한 상품 갯수 정보 담기
 		Integer buyCount = p1.getProductQty() - buyDto.getBuyQty();
-
 		System.out.println("사려던 갯수 : " + buyDto.getBuyQty());
 		System.out.println("남은 개수 : " + buyCount);
 		// 3. buyDto에 담은 정보로 insert함
 		buyDao.insert(buyDto);
-
 		// 4. buyCount와 buyDto에 담긴 productId로 qty 업데이트
 		productDao.updateQty(buyCount, buyDto.getProductId());
 		return "redirect:/";
 	}
 
 	@GetMapping("/buy/buylist/{id}")
-	public String buylist(@PathVariable Integer id,Model model) {
+	public String buylist(@PathVariable Integer id, Model model) {
 		List<BuyListDto> buyList = buyDao.buyList(id);
-		model.addAttribute("buy",buyList);
+		model.addAttribute("buy", buyList);
 		return "users/buylist";
 	}
 
-	
-	
 }
