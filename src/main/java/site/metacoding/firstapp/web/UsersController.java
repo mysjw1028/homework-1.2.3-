@@ -56,7 +56,7 @@ public class UsersController {
 
 	@GetMapping("/logout") // 화면 출력되는지 확인 완료
 	public String loginout() {
-		session.invalidate();
+		session.invalidate();//로그아웃 -> 화면은 따로 필요없다
 		return "redirect:/";
 	}
 

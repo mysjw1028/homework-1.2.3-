@@ -11,6 +11,6 @@ public interface BuyDao {
 	public Buy findById(Integer productId);
 	public int deleteById(Integer productId);
 	public List<Buy> findAll();
-	public List<BuyListDto> buyList(Integer id);
+	public List<BuyListDto> buyList(Integer id);//구매목록보기 리스트 디티오 추가적으로 넣음
 
 }

@@ -7,7 +7,6 @@ $("#btnproductNameSameCheck").click(() => {
 })
 
 $("#btnInsert").click(() => {
-
 	insert();
 })
 
