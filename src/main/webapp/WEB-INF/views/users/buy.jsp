@@ -17,15 +17,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<input type="hidden"  name="productId" value="${product.productId }">
-				<input type="hidden"  name="id" value="${principal.id}">
+				<input type="hidden" name="productId" value="${product.productId }">
+				<input type="hidden" name="id" value="${principal.id}">
+				<input type="hidden" name="buyPrice" value="${product.productPrice}">
+				<input type="hidden" name="buyName" value="${product.productName}">
 				<tr>
 					<td>${product.productName}</td>
 					<td>${product.productPrice}</td>
 					<td>${product.productQty}</td>
 					<td>${product.createdAt}</td>
 				</tr>
-
 			</tbody>
 		</table>
 		<div class="mb-3 mt-3">
@@ -33,7 +34,7 @@
 			<button id="btnInsert" type="submit" class="btn btn-primary">상품구매 완료</button>
 		</div>
 	</form>
-	
+
 
 </div>
 

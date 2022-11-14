@@ -27,9 +27,9 @@
 				<c:forEach var="buy" items="${buy}">
 					<tr>
 						<td>${buy.no}</td>
-						<td>${buy.productName}</td>
+						<td>${buy.buyName}</td>
 						<td>${buy.buyQty}</td>
-						<td>${buy.productPrice}</td>
+						<td>${buy.buyPrice}</td>
 						<td>${buy.createdAt}</td>
 					</tr>
 				</c:forEach>

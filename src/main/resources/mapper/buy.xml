@@ -7,19 +7,19 @@
 
 	<select id="buyList"
 		resultType="site.metacoding.firstapp.web.dto.request.buy.BuyListDto">
-		SELECT b.id, row_number() over(order BY b.id )as NO,p.product_name, b.buy_qty, p.product_price, b.created_at
-		FROM
-		buy b
-		INNER JOIN product p
-		ON b.product_id = p.product_id
-		WHERE
-		b.users_id = #{usersId}
+		SELECT id, row_number() over(order BY id )as NO,
+		id, users_id, product_id, buy_qty, buy_price,
+		buy_name,
+		created_at	
+		FROM buy
 	</select>
 
 	<insert id="insert">
-		insert into buy(product_id, users_id,
-		buy_qty,created_at)
-		values(#{productId}, #{id}, #{buyQty}, NOW())
+		insert into buy( users_id,product_id,buy_qty,
+		buy_price,buy_name,
+		created_at)
+		values(#{id}, #{productId}, #{buyQty},
+		#{buyPrice},#{buyName},NOW())
 	</insert>
 
 

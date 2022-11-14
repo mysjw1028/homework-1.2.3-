@@ -27,9 +27,9 @@
 
 			</tbody>
 		</table>
-	<!--<a href="/product/${productId}/edit"><button id="btnUpdate" type="button"
+		<a href="/product/${productId}/edit"><button id="btnUpdate" type="button"
 				class="btn btn-primary">상품수정</button></a> <a href="/product/${productId}/delete"><button
-				id="btnDelete" class="btn btn-danger">상품삭제</button></a> -->
+				id="btnDelete" class="btn btn-danger">상품삭제</button></a>
 	</form>
 	<a href="/buy/${productId}"><button class="btn  btn-primary">상품구매</button></a>
 </div>
