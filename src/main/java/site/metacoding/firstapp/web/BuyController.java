@@ -37,15 +37,28 @@ public class BuyController {
 		Product p1 = productDao.findById(buyDto.getProductId());
 		System.out.println(buyDto.getProductId());
 		// 2. buyCount에 기존 DB의 상품갯수 - 구매하려고 한 상품 갯수 정보 담기
+	
+	
 		Integer buyCount = p1.getProductQty() - buyDto.getBuyQty();
+		if(p1.getProductQty() - buyDto.getBuyQty()< 0){
+			return "redirect:/";
+		}//0이하는 못들어가게 -> 남은갯수보다 살려는 갯수가 많으면 메인으로 튕겨짐
+		
+//		if(p1.getProductQty() - buyDto.getBuyQty()< 0) {
+//			return "redirect:/";
+//		}
 		System.out.println("사려던 갯수 : " + buyDto.getBuyQty());
 		System.out.println("남은 개수 : " + buyCount);
+
 		// 3. buyDto에 담은 정보로 insert함
 		buyDao.insert(buyDto);
+
 		// 4. buyCount와 buyDto에 담긴 productId로 qty 업데이트
 		productDao.updateQty(buyCount, buyDto.getProductId());
+
 		return "redirect:/";
-	}
+
+	}//- (음수 못들어가게) js 로 구현을 해도 -면 자동으로 +가됨
 
 	@GetMapping("/buy/buylist/{id}")
 	public String buylist(@PathVariable Integer id, Model model) {

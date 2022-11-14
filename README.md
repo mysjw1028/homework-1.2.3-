@@ -17,8 +17,7 @@
 - 상품 등록시 동일한 상품명 못들어가게 하기
 
 ###
-상품등록 부분 인터셉터 구현을 해야하는건가
-인증처리는 어떻게 
+
 
 ### 4. 테이블 생성
 ```sql
@@ -39,10 +38,14 @@ create table users(
 );
 create table buy(
     id int primary KEY auto_increment,
-    product_id INT,
     users_id INT,
+    product_id INT,
+    buy_qty INT,
+    buy_price INT,
+    buy_name VARCHAR(50),
     created_at  TIMESTAMP
 );
+
 ```
 
 ### 5. 더미데이터
