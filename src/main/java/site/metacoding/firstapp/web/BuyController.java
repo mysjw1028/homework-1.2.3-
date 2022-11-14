@@ -2,6 +2,8 @@ package site.metacoding.firstapp.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.firstapp.domain.Buy;
+
 import site.metacoding.firstapp.domain.BuyDao;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
+import site.metacoding.firstapp.domain.Users;
 
 import site.metacoding.firstapp.web.dto.request.buy.BuyDto;
 import site.metacoding.firstapp.web.dto.request.buy.BuyListDto;
@@ -20,7 +23,7 @@ import site.metacoding.firstapp.web.dto.request.buy.BuyListDto;
 @RequiredArgsConstructor
 @Controller
 public class BuyController {
-
+	private final HttpSession session;
 	private final ProductDao productDao;
 	private final BuyDao buyDao;
 
@@ -30,20 +33,20 @@ public class BuyController {
 		return "users/buy";
 	}
 
-	@PostMapping("/buy")
-	public String buy(BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
-
+	@PostMapping("/buy/{id}")
+	public String buy(@PathVariable Integer id, BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
+		Users principal = (Users) session.getAttribute("principal");
+		session.setAttribute("principal", principal);
 		// 1. findById로 p1에 사려던 품목을 담김
 		Product p1 = productDao.findById(buyDto.getProductId());
 		System.out.println(buyDto.getProductId());
 		// 2. buyCount에 기존 DB의 상품갯수 - 구매하려고 한 상품 갯수 정보 담기
-	
-	
+
 		Integer buyCount = p1.getProductQty() - buyDto.getBuyQty();
-		if(p1.getProductQty() - buyDto.getBuyQty()< 0){
+		if (p1.getProductQty() - buyDto.getBuyQty() < 0) {
 			return "redirect:/";
-		}//0이하는 못들어가게 -> 남은갯수보다 살려는 갯수가 많으면 메인으로 튕겨짐
-		
+		} // 0이하는 못들어가게 -> 남은갯수보다 살려는 갯수가 많으면 메인으로 튕겨짐
+
 //		if(p1.getProductQty() - buyDto.getBuyQty()< 0) {
 //			return "redirect:/";
 //		}
@@ -58,7 +61,7 @@ public class BuyController {
 
 		return "redirect:/";
 
-	}//- (음수 못들어가게) js 로 구현을 해도 -면 자동으로 +가됨
+	}// - (음수 못들어가게) js 로 구현을 해도 -면 자동으로 +가됨
 
 	@GetMapping("/buy/buylist/{id}")
 	public String buylist(@PathVariable Integer id, Model model) {

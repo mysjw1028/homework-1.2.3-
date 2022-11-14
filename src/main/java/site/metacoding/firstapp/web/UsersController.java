@@ -38,7 +38,7 @@ public class UsersController {
 	@GetMapping("/login") // 화면 출력되는지 확인 완료
 	public String login() {
 		return "users/login";
-	}// 화면은 잘 나옴
+	}
 
 	@PostMapping("/login")
 	public String 로그인(LoginDto loginDto) {// 로그인 / xml에 쿼리 있는지 확인 / login jsp name 확인하기
