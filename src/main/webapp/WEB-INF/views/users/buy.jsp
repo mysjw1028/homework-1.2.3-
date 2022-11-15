@@ -19,7 +19,6 @@
 			<tbody>
 				<input type="hidden" name="productId" value="${product.productId }">
 				<input type="hidden" name="id" value="${principal.id}">
-				<input type="hidden" id="productQty" name="buyPrice" value="${product.productQty}">
 				<input type="hidden" id="productPricenumber" name="buyPrice" value="${product.productPrice}">
 				<input type="hidden" name="buyName" value="${product.productName}">
 				<tr>
@@ -40,7 +39,6 @@
 				</c:forEach>
 			</select> &nbsp;개
 			<button type="submit" class="btn btn-primary">상품구매 완료</button>
-
 		</div>
 </div>
 </form>
