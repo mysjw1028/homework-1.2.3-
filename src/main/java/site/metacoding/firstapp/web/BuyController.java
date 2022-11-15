@@ -33,8 +33,8 @@ public class BuyController {
 		return "users/buy";
 	}
 
-	@PostMapping("/buy/{id}")
-	public String buy(@PathVariable Integer id, BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
+	@PostMapping("/buy")
+	public String buy( BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
 		Users principal = (Users) session.getAttribute("principal");
 		session.setAttribute("principal", principal);
 		// 1. findById로 p1에 사려던 품목을 담김

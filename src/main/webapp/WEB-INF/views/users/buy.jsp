@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <div id=cotainer>
-	<form action="/buy/{id}" method="POST">
+	<form action="/buy" method="POST">
 		<h3>구매하기</h3>
 		<table class="table table-product" id="datatable" border="2">
 			<thead>
@@ -19,6 +19,7 @@
 			<tbody>
 				<input type="hidden" name="productId" value="${product.productId }">
 				<input type="hidden" name="id" value="${principal.id}">
+				<input type="hidden" id="productQty" name="buyPrice" value="${product.productQty}">
 				<input type="hidden" id="productPricenumber" name="buyPrice" value="${product.productPrice}">
 				<input type="hidden" name="buyName" value="${product.productName}">
 				<tr>
@@ -30,16 +31,19 @@
 			</tbody>
 		</table>
 		<div class="mb-3 mt-3">
-			<label for="assNumber">구매갯수</label> <select>
+			<label for="assNumber">구매갯수</label> <input type="hidden" value="${product.productQty}" /> <select
+				name="buyQty">
+				<!-- name을 왜 안걸엇니... -->
 				<option value="">선택해주세요.</option>
 				<c:forEach begin="1" end="10" var="i">
 					<option>${i}</option>
 				</c:forEach>
-			</select>
+			</select> &nbsp;개
 			<button type="submit" class="btn btn-primary">상품구매 완료</button>
-			<!-- <button id="btnInsert" type="submit" class="btn btn-primary">상품구매 완료</button> -->
+
 		</div>
-	</form>
+</div>
+</form>
 </div>
 
 <%@ include file="../layout/footer.jsp"%>
