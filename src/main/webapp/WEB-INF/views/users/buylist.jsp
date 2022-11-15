@@ -11,32 +11,35 @@
 </head>
 <body>
 	<div id="cotainer'">
-		<h2>구매내역 보기</h2>
-		<table class="table table-product" id="datatable" border="2">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>상품이름</th>
-					<th>구매갯수</th>
-					<th>상품가격</th>
-					<th>구매시시간</th>
-				</tr>
-			</thead>
-			<tbody>
-
-				<c:forEach var="buy" items="${buy}">
+		<form action="/buy/buylist/${id}" method="POST">
+			<h2>구매내역 보기</h2>
+			<table class="table table-product" id="datatable" border="2">
+				<thead>
 					<tr>
-						<td>${buy.no}</td>
-						<td>${buy.buyName}</td>
-						<td>${buy.buyQty}</td>
-						<td>${buy.buyPrice}</td>
-						<td>${buy.createdAt}</td>
+						<th>번호</th>
+						<th>상품이름</th>
+						<th>구매갯수</th>
+						<th>상품가격</th>
+						<th>구매시시간</th>
 					</tr>
-				</c:forEach>
+				</thead>
+				<tbody>
 
-			</tbody>
-		</table>
+					<c:forEach var="buy" items="${buy}">
+						<tr>
+							<td>${buy.no}</td>
+							<td>${buy.buyName}</td>
+							<td>${buy.buyQty}</td>
+							<td>${buy.buyPrice}</td>
+							<td>${buy.createdAt}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
+			</table>
+		</form>
 	</div>
+
 </body>
 </html>
 <%@ include file="../layout/footer.jsp"%>

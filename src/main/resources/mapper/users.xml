@@ -13,6 +13,11 @@
 	<select id="findById" resultType="site.metacoding.firstapp.domain.Users">
 		SELECT * FROM users WHERE users_id = #{usersId}
 	</select>
+	
+	<select id="findByIduserName"
+		resultType="site.metacoding.firstapp.domain.Users">
+		SELECT * FROM users WHERE user_name = #{userName}
+	</select>
 
 	<select id="login"  resultType="site.metacoding.firstapp.domain.Users">
 		SELECT * FROM users WHERE user_name =#{userName} AND password=#{password}

@@ -18,7 +18,6 @@ public class ProductService {
 			return false;
 		} else { // 사업자번호가 중복됨
 			return true;
-			
 		}
 	}
 }

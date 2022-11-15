@@ -37,6 +37,9 @@ public class BuyController {
 	public String buy( BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
 		Users principal = (Users) session.getAttribute("principal");
 		session.setAttribute("principal", principal);
+		if (principal == null) {
+			return "redirect:/";
+		}
 		// 1. findById로 p1에 사려던 품목을 담김
 		Product p1 = productDao.findById(buyDto.getProductId());
 		System.out.println(buyDto.getProductId());
@@ -47,9 +50,6 @@ public class BuyController {
 			return "redirect:/";
 		} // 0이하는 못들어가게 -> 남은갯수보다 살려는 갯수가 많으면 메인으로 튕겨짐
 
-//		if(p1.getProductQty() - buyDto.getBuyQty()< 0) {
-//			return "redirect:/";
-//		}
 		System.out.println("사려던 갯수 : " + buyDto.getBuyQty());
 		System.out.println("남은 개수 : " + buyCount);
 
@@ -64,8 +64,11 @@ public class BuyController {
 	}// - (음수 못들어가게) js 로 구현을 해도 -면 자동으로 +가됨
 
 	@GetMapping("/buy/buylist/{id}")
+	//유저에 대한 구매목록 나오게 하는 주소
 	public String buylist(@PathVariable Integer id, Model model) {
+		//2. 아이디를 받아
 		List<BuyListDto> buyList = buyDao.buyList(id);
+		//3. 유저 아이디에대한 구매목록을 띄움
 		model.addAttribute("buy", buyList);
 		return "users/buylist";
 	}

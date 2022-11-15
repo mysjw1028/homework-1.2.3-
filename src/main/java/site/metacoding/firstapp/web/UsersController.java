@@ -7,17 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstapp.Service.UsersService;
 import site.metacoding.firstapp.domain.ProductDao;
 import site.metacoding.firstapp.domain.Users;
 import site.metacoding.firstapp.domain.UsersDao;
-
+import site.metacoding.firstapp.web.dto.CMRespDto;
 import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 
 @RequiredArgsConstructor
 @Controller
 public class UsersController {
+	private final UsersService usersService;
 	private final HttpSession session;
 	private final UsersDao usersDao;
 
@@ -56,9 +60,14 @@ public class UsersController {
 
 	@GetMapping("/logout") // 화면 출력되는지 확인 완료
 	public String loginout() {
-		session.invalidate();//로그아웃 -> 화면은 따로 필요없다
+		session.invalidate();// 로그아웃 -> 화면은 따로 필요없다
 		return "redirect:/";
 	}
 
-
+//	@GetMapping("/join/userNameCheck")
+//	public @ResponseBody CMRespDto<?> userNameCheck(String username) {
+//		System.out.println("유저 이름 : " + username);
+//		boolean isSame = usersService.아이디중복체크(username);
+//		return new CMRespDto<>(1, "성공", isSame);
+//	}
 }

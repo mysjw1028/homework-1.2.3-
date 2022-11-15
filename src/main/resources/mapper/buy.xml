@@ -11,7 +11,7 @@
 		id, users_id, product_id, buy_qty, buy_price,
 		buy_name,
 		created_at	
-		FROM buy
+		FROM buy WHERE users_id = #{id}
 	</select>
 
 	<insert id="insert">

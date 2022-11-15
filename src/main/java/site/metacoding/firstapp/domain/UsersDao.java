@@ -19,6 +19,7 @@ public interface UsersDao {
 	public int update(Users users);
 
 	public int deleteById(Integer users);
-
+	
+	public Users findByIduserName(String username);
 
 }
